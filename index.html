@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TokoKu - Dashboard Produk UMKM</title>
+  <meta name="description" content="Dashboard interaktif katalog produk TokoKu berbasis REST API DummyJSON.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,10 +19,10 @@
     <section>
       <div class="controls">
         <strong>Tampilan:</strong>
-        <button type="button" onclick="setView('grid')">Grid View</button>
-        <button type="button" onclick="setView('list')">List View</button>
+        <button type="button" aria-label="Tampilan Grid" onclick="setView('grid')">Grid View</button>
+        <button type="button" aria-label="Tampilan List" onclick="setView('list')">List View</button>
       </div>
-      <div id="stat" style="margin-top: 10px;">Menghitung statistik...</div>
+      <div id="stat" aria-live="polite" style="margin-top: 10px;">Menghitung statistik...</div>
     </section>
 
     <!-- Form Validasi Rentang Harga (2 Input Berkaitan) -->
