@@ -64,10 +64,12 @@ button {
   border: none;
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
   background: #0369a1;
+  transform: translateY(-1px);
 }
 
 .card {
@@ -75,6 +77,11 @@ button:hover {
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   padding: 12px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .card img {
