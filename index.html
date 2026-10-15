@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TokoKu - Dashboard Produk UMKM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>TokoKu</h1>
+    <p>Muhammad Aril Saputra | 2440304029 | Dashboard Produk / UMKM</p>
+  </header>
+
+  <main>
+    <!-- Kontrol Tampilan & Statistik -->
+    <section>
+      <div class="controls">
+        <strong>Tampilan:</strong>
+        <button type="button" onclick="setView('grid')">Grid View</button>
+        <button type="button" onclick="setView('list')">List View</button>
+      </div>
+      <div id="stat" style="margin-top: 10px;">Menghitung statistik...</div>
+    </section>
+
+    <!-- Form Validasi Rentang Harga (2 Input Berkaitan) -->
+    <section>
+      <h2>Filter Rentang Harga</h2>
+      <form id="formFilter">
+        <label for="minPrice">Min ($):</label>
+        <input type="number" id="minPrice" placeholder="0" min="0" required>
+
+        <label for="maxPrice">Max ($):</label>
+        <input type="number" id="maxPrice" placeholder="100" min="0" required>
+
+        <button type="submit">Filter</button>
+        <button type="button" onclick="render(products); msgEl.textContent=''">Reset</button>
+      </form>
+      <p id="msg" aria-live="polite" style="margin-top: 8px;"></p>
+    </section>
+
+    <!-- Area Data Utama -->
+    <section>
+      <h2>Daftar Produk</h2>
+      <div id="list" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Muhammad Aril Saputra &bull; NIM: 2440304029 &bull; Kelas: Pemrograman Web (Teknik Komputer UBT)</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
