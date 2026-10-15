@@ -5,51 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TokoKu - Dashboard Produk UMKM</title>
   <meta name="description" content="Dashboard interaktif katalog produk TokoKu berbasis REST API DummyJSON.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header>
     <h1>TokoKu</h1>
-    <p>Muhammad Aril Saputra | 2440304029 | Dashboard Produk / UMKM</p>
+    <p class="subtitle">Dashboard Produk &bull; UMKM E-Commerce</p>
+    <div class="header-badge">Muhammad Aril Saputra &bull; NIM: 2440304029</div>
   </header>
 
   <main>
     <!-- Kontrol Tampilan & Statistik -->
     <section>
       <div class="controls">
-        <strong>Tampilan:</strong>
-        <button type="button" aria-label="Tampilan Grid" onclick="setView('grid')">Grid View</button>
-        <button type="button" aria-label="Tampilan List" onclick="setView('list')">List View</button>
+        <span class="controls-label">Mode Tampilan:</span>
+        <div class="view-buttons">
+          <button type="button" id="btnGrid" class="btn-view active" aria-label="Tampilan Grid" onclick="setView('grid')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Grid View
+          </button>
+          <button type="button" id="btnList" class="btn-view" aria-label="Tampilan List" onclick="setView('list')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            List View
+          </button>
+        </div>
       </div>
-      <div id="stat" aria-live="polite" style="margin-top: 10px;">Menghitung statistik...</div>
+      <div id="stat" aria-live="polite">Memuat ringkasan statistik...</div>
     </section>
 
-    <!-- Form Validasi Rentang Harga (2 Input Berkaitan) -->
+    <!-- Form Validasi Rentang Harga -->
     <section>
       <h2>Filter Rentang Harga</h2>
       <form id="formFilter">
-        <label for="minPrice">Min ($):</label>
-        <input type="number" id="minPrice" placeholder="0" min="0" required>
+        <div class="input-group">
+          <label for="minPrice">Harga Min ($):</label>
+          <input type="number" id="minPrice" placeholder="0" min="0" required>
+        </div>
 
-        <label for="maxPrice">Max ($):</label>
-        <input type="number" id="maxPrice" placeholder="100" min="0" required>
+        <div class="input-group">
+          <label for="maxPrice">Harga Max ($):</label>
+          <input type="number" id="maxPrice" placeholder="100" min="0" required>
+        </div>
 
-        <button type="submit">Filter</button>
-        <button type="button" onclick="render(products); msgEl.textContent=''">Reset</button>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Terapkan Filter</button>
+          <button type="button" class="btn-secondary" onclick="resetFilter()">Reset</button>
+        </div>
       </form>
-      <p id="msg" aria-live="polite" style="margin-top: 8px;"></p>
+      <p id="msg" aria-live="polite"></p>
     </section>
 
     <!-- Area Data Utama -->
     <section>
-      <h2>Daftar Produk</h2>
+      <div class="section-header">
+        <h2>Daftar Produk</h2>
+      </div>
       <div id="list" class="grid"></div>
     </section>
   </main>
 
   <footer>
-    <p>Muhammad Aril Saputra &bull; NIM: 2440304029 &bull; Kelas: Pemrograman Web (Teknik Komputer UBT) &bull; v0.1-PTS</p>
+    <p><strong>Muhammad Aril Saputra</strong> &bull; NIM: 2440304029 &bull; Kelas: Pemrograman Web (Teknik Komputer UBT) &bull; <span class="tag-badge">v0.1-PTS</span></p>
   </footer>
 
   <script src="js/script.js"></script>
